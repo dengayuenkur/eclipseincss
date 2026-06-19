@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!-- Hero -->
+<div class="hero text-center">
+    <div class="container position-relative" style="z-index:1">
+        <span class="badge-accent" style="background:rgba(96,165,250,0.15);border-color:rgba(96,165,250,0.3);color:#93c5fd;">Get in Touch</span>
+        <h1 class="sub-title">Contact Eclipse Inc.</h1>
+        <p style="color:#cbd5e1;">Let's discuss how we can secure and transform your business.</p>
+    </div>
+</div>
+
+<!-- Contact Section -->
+<div class="section">
+<div class="container">
+    <div class="row g-5">
+
+        <!-- Contact Info -->
+        <div class="col-lg-5">
+            <h3 class="section-title" style="font-size: 1.4rem; margin-bottom: 0.5rem;">Reach Out to Us</h3>
+            <p style="color: var(--text-muted); margin-bottom: 2rem; line-height: 1.7; font-size: 0.93rem;">
+                Whether you need cybersecurity services, software development, or technology consulting,
+                we're ready to help you build a more secure future.
+            </p>
+
+            <div class="contact-info-item">
+                <div class="ci-icon"><i class="fas fa-location-dot"></i></div>
+                <div>
+                    <strong style="color: var(--text-light); display: block; margin-bottom: 2px;">Location</strong>
+                    <span style="font-size: 0.9rem;">Juba, South Sudan</span>
+                </div>
+            </div>
+
+            <div class="contact-info-item">
+                <div class="ci-icon"><i class="fas fa-envelope"></i></div>
+                <div>
+                    <strong style="color: var(--text-light); display: block; margin-bottom: 2px;">Email</strong>
+                    <span style="font-size: 0.9rem;">info@eclipse.ss</span>
+                </div>
+            </div>
+
+            <div class="contact-info-item">
+                <div class="ci-icon"><i class="fas fa-clock"></i></div>
+                <div>
+                    <strong style="color: var(--text-light); display: block; margin-bottom: 2px;">Response Time</strong>
+                    <span style="font-size: 0.9rem;">We typically respond within 24 hours</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Form -->
+        <div class="col-lg-7">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+              {% for category, message in messages %}
+                <div class="alert alert-{{ category }} mb-3">{{ message }}</div>
+              {% endfor %}
+            {% endwith %}
+
+            <div class="service-card" style="padding: 36px;">
+                <form method="POST">
+                  <div class="row g-3">
+                    <div class="col-md-6">
+                        <label class="form-label">Full Name</label>
+                        <input type="text" name="name" class="form-control" placeholder="Your name" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Email Address</label>
+                        <input type="email" name="email" class="form-control" placeholder="your@email.com" required>
+                    </div>
+                    <div class="col-12">
+                        <label class="form-label">Subject</label>
+                        <input type="text" name="subject" class="form-control" placeholder="How can we help?">
+                    </div>
+                    <div class="col-12">
+                        <label class="form-label">Message</label>
+                        <textarea name="message" rows="5" class="form-control" placeholder="Tell us about your needs..." required></textarea>
+                    </div>
+                    <div class="col-12">
+                        <button class="btn btn-primary w-100">
+                            <i class="fas fa-paper-plane me-2"></i>Send Message
+                        </button>
+                    </div>
+                  </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
+</div>
+
+{% endblock %}
